@@ -120,3 +120,5 @@ antigen theme skylerlee/zeta-zsh-theme zeta
 antigen apply
 
 eval "$(fasd --init auto)"
+
+export PATH="/snap/bin:$PATH"
