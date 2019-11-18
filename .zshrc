@@ -122,3 +122,5 @@ antigen apply
 eval "$(fasd --init auto)"
 
 export PATH="/snap/bin:$PATH"
+
+source ~/.aliases
