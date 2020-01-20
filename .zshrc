@@ -116,7 +116,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 ## if its not already installed, otherwise it will just load the plugin
 
 # Load the theme (antigen looks in your oh-my-zsh themes, custom/themes folder)
-antigen theme skylerlee/zeta-zsh-theme zeta
+antigen theme romkatv/powerlevel10k
 
 # Tell antigen that you're done.
 antigen apply
