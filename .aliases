@@ -1,1 +1,27 @@
 alias idea=intellij-idea-ultimate
+
+   alias cr='crystal'
+  alias ga="git add ."
+  alias gc="git commit -m ${1}"
+  alias gd="git diff"
+  alias gdt="git difftool"
+  alias gmt="git mergetool"
+  alias gp="git push ${1} ${2}"
+  alias gco="git checkout ${1} ${2}"
+  alias gpl="git pull ${1} ${2}"
+  alias grb="git rebase ${1} ${2}"
+  alias gs="git status"
+  alias la="ls -al"
+  alias lf="ls -al | grep ${1}"
+  alias ls="ls -Gl"
+  alias tt="$EDITOR ~/.tmux.conf"
+  alias u="utils"
+  alias v="vim ."
+  alias vcp="vim +PlugClean +qall"
+  alias vip="vim +PlugInstall +qall"
+  alias vup="vim +PlugUpdate"
+  alias vv="$EDITOR ~/.vimrc"
+  alias zx="source ~/.zshrc"
+  alias zz="$EDITOR ~/.zshrc"
+
+
