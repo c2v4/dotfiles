@@ -16,7 +16,6 @@ alias idea=intellij-idea-ultimate
   alias ls="ls -Gl"
   alias tt="$EDITOR ~/.tmux.conf"
   alias u="utils"
-  alias v="vim ."
   alias vcp="vim +PlugClean +qall"
   alias vip="vim +PlugInstall +qall"
   alias vup="vim +PlugUpdate"
@@ -24,4 +23,6 @@ alias idea=intellij-idea-ultimate
   alias zx="source ~/.zshrc"
   alias zz="$EDITOR ~/.zshrc"
 
-
+alias v='f -e vim' # quick opening files with vim
+alias m='f -e mplayer' # quick opening files with mplayer
+alias o='a -e xdg-open' # quick opening files with xdg-open

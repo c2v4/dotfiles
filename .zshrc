@@ -127,13 +127,12 @@ antigen theme romkatv/powerlevel10k
 
 # Tell antigen that you're done.
 antigen apply
-
+source ~/.fasd-bin/fasd
 eval "$(fasd --init auto)"
 
 export PATH="/snap/bin:$PATH"
 
 source ~/.aliases
-source ~/.z-bin/z.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
