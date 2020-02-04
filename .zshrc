@@ -131,7 +131,7 @@ source ~/.fasd-bin/fasd
 eval "$(fasd --init auto)"
 
 export PATH="/snap/bin:$PATH"
-
+export JAVA_HOME="/usr/lib/jvm/default-java"
 source ~/.aliases
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
