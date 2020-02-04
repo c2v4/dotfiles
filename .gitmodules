@@ -7,3 +7,6 @@
 [submodule ".fasd-bin"]
 	path = .fasd-bin
 	url = https://github.com/clvv/fasd.git
+[submodule ".idea-config"]
+	path = .idea-config
+	url = https://github.com/c2v4/idea-config
