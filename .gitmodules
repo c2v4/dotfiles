@@ -10,3 +10,6 @@
 [submodule ".idea-config"]
 	path = .idea-config
 	url = https://github.com/c2v4/idea-config
+[submodule ".tmux"]
+	path = .tmux
+	url = https://github.com/gpakosz/.tmux.git
