@@ -21,5 +21,5 @@ then
 fi
 
 ./.yadm clone https://github.com/c2v4/dotfiles
-./.yadm submodule update --init --recursive`
+./.yadm submodule update --init --recursive
 rm .yadm
