@@ -1,6 +1,5 @@
 # dotfiles
 
 ```bash
-yadm clone https://github.com/c2v4/dotfiles
-yadm submodule update --init --recursive
+bash -c "`curl -fsSL https://raw.githubusercontent.com/c2v4/dotfiles/master/remote-install.sh`"
 ```
