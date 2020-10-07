@@ -12,10 +12,7 @@ for i in git zsh curl; do
     check_prerequisite $i
 done
 
-# check if yadm is installed
-if ! command -v yadm &>/dev/null; then
-    curl -fLo .yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x .yadm
-fi
+curl -fLo .yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x .yadm
 
 ./.yadm clone https://github.com/c2v4/dotfiles
 ./.yadm submodule update --init --recursive
