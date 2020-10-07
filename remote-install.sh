@@ -17,3 +17,5 @@ curl -fLo .yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod
 ./.yadm clone https://github.com/c2v4/dotfiles
 ./.yadm submodule update --init --recursive
 rm .yadm
+
+chsh -s $(which zsh)
