@@ -1,0 +1,7 @@
+function gfck {
+    BRANCH="$(git rev-parse --abbrev-ref HEAD) "
+    if [ $BRANCH=="master " ] ; then
+        BRANCH=""
+    fi
+    git commit -am "$BRANCH$(curl -s http://whatthecommit.com/index.txt)"
+}
