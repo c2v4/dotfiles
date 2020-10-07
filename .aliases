@@ -1,6 +1,7 @@
    alias cr='crystal'
   alias gpl="gl"
   alias gs="gsb"
+  alias gfck="git commit -am \"$(curl -s http://whatthecommit.com/index.txt)\""
   alias la="ls -al"
   alias lf="ls -al | grep ${1}"
   alias ls="ls -Gl"
