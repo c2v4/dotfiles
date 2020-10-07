@@ -129,6 +129,7 @@ antigen theme romkatv/powerlevel10k
 antigen apply
 
 source ~/.aliases
+source ~/.functions
 source ~/.exports
 source ~/.path
 
