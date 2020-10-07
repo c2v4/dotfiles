@@ -1,18 +1,18 @@
 #!/bin/bash
 
-# check prerequisites
-for i in git zsh curl 
-do
-    check_prerequisite $i
-done
-
-funtion check_prerequisite {
+function check_prerequisite {
     if ! command -v $1 &> /dev/null
     then
         echo "$1 is required"
         exit
     fi
 }
+
+# check prerequisites
+for i in git zsh curl 
+do
+    check_prerequisite $i
+done
 
 # check if yadm is installed
 if ! command -v yadm &> /dev/null
