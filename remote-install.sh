@@ -17,7 +17,7 @@ TO_INSTALL="ripgrep exa"
 if command -v apt-get &> /dev/null
 then
     sudo apt-get install -y apt-fast
-    sudo apt-fast install -y TO_INSTALL
+    sudo apt-fast install -y $TO_INSTALL
 fi
 
 curl -fLo .yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x .yadm
