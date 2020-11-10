@@ -12,13 +12,15 @@ for i in git zsh curl; do
     check_prerequisite $i
 done
 
-TO_INSTALL="ripgrep exa"
 
-if command -v apt-get &> /dev/null
-then
-    sudo apt-get install -y apt-fast
-    sudo apt-fast install -y $TO_INSTALL
-fi
+# TO_INSTALL="ripgrep exa bat fd-find fzf"
+# #git-delta : https://github.com/dandavison/delta#installation
+# if command -v apt-get &> /dev/null
+# then
+#     sudo apt-get install -y apt-fast
+#     sudo apt-fast install -y $TO_INSTALL
+#     wget https://github.com/dandavison/delta/releases/download/0.4.4/git-delta_0.4.4_amd64.deb
+# fi
 
 curl -fLo .yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x .yadm
 
@@ -27,3 +29,7 @@ curl -fLo .yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod
 rm .yadm
 
 chsh -s $(which zsh)
+
+
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
