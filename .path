@@ -1,10 +1,10 @@
 export PATH="$HOME/bin:$PATH"
 
 if [ -d "/home/linuxbrew/.linuxbrew" ]
-  BREW_HOME=/home/linuxbrew/.linuxbrew
+  BREW_HOME="/home/linuxbrew/.linuxbrew"
 fi
 if [ -d "~/.linuxbrew" ]
-  BREW_HOME=$HOME/.linuxbrew
+  BREW_HOME="$HOME/.linuxbrew"
 fi
 if [ ! -z "$BREW_HOME" ]; then
   export HOMEBREW_PREFIX="$BREW_HOME";
