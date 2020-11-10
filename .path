@@ -1,9 +1,9 @@
 export PATH="$HOME/bin:$PATH"
 
-if [ -d "/home/linuxbrew/.linuxbrew" ]
+if [ -d "/home/linuxbrew/.linuxbrew" ]; then
   BREW_HOME="/home/linuxbrew/.linuxbrew"
 fi
-if [ -d "~/.linuxbrew" ]
+if [ -d "~/.linuxbrew" ]; then
   BREW_HOME="$HOME/.linuxbrew"
 fi
 if [ ! -z "$BREW_HOME" ]; then
