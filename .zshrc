@@ -75,7 +75,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-auto-fetch gradle extract z)
+plugins=(git git-auto-fetch gradle extract)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -128,10 +128,10 @@ antigen theme romkatv/powerlevel10k
 # Tell antigen that you're done.
 antigen apply
 
+source ~/.path
 source ~/.aliases
 source ~/.functions
 source ~/.exports
-source ~/.path
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

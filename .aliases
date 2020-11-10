@@ -25,11 +25,11 @@ fi
 if command -v exa &> /dev/null
 then
 	alias l='exa'
-  alias la='exa -a'
+  alias la='exa -la'
   alias ll='exa -lah'
   alias ls='exa --color=auto'
 fi
 if command -v bat &> /dev/null
 then
-	alias cat='bat'
+	alias cat='bat --style=plain'
 fi

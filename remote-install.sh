@@ -8,19 +8,9 @@ function check_prerequisite() {
 }
 
 # check prerequisites
-for i in git zsh curl; do
+for i in git zsh curl cc gcc make; do
     check_prerequisite $i
 done
-
-
-# TO_INSTALL="ripgrep exa bat fd-find fzf"
-# #git-delta : https://github.com/dandavison/delta#installation
-# if command -v apt-get &> /dev/null
-# then
-#     sudo apt-get install -y apt-fast
-#     sudo apt-fast install -y $TO_INSTALL
-#     wget https://github.com/dandavison/delta/releases/download/0.4.4/git-delta_0.4.4_amd64.deb
-# fi
 
 curl -fLo .yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x .yadm
 
@@ -29,5 +19,22 @@ curl -fLo .yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod
 rm .yadm
 
 chsh -s $(which zsh)
-
+TO_INSTALL="ripgrep exa bat fd fzf git-delta tokei procs dust zoxide"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+source ~/.aliases
+brew install $TO_INSTALL
+
+echo "[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+
+[delta \"decorations\"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none" >> ~/.gitconfig

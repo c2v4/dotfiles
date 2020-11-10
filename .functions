@@ -37,3 +37,4 @@ bcp() {
     do; brew uninstall $prog; done;
   fi
 }
+eval "$(zoxide init zsh)"
