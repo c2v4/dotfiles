@@ -20,6 +20,7 @@ rm .yadm
 chsh -s $(which zsh)
 TO_INSTALL="ripgrep exa bat fd fzf git-delta tokei procs dust zoxide"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+source ~/.path
 source ~/.aliases
 brew install $TO_INSTALL
 
