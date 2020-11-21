@@ -13,7 +13,6 @@ for i in git zsh curl cc gcc make; do
 done
 
 curl -fLo .yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x .yadm
-chmod +x .yadm
 ./.yadm clone https://github.com/c2v4/dotfiles
 ./.yadm submodule update --init --recursive
 rm .yadm
