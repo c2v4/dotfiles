@@ -132,7 +132,8 @@ source ~/.path
 source ~/.aliases
 source ~/.functions
 source ~/.exports
-source ~/.localrc
-
+if [ -f ~/.localrc ]; then
+	source ~/.localrc
+fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

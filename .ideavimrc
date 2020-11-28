@@ -1,0 +1,23 @@
+set surround
+set multiple-cursors
+set incsearch
+set ignorecase
+set clipboard=unnamed
+
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+set clipbord+=ideaput
+
+set showcmd
+set showmatch
+set smartcase
+set incsearch
+set autowrite
+set mouse=a
+set number relativenumber
+
+set highlightedyank
+
