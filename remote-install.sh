@@ -8,7 +8,7 @@ function check_prerequisite() {
 }
 
 # check prerequisites
-for i in git zsh curl cc gcc make; do
+for i in git curl cc gcc make; do
     check_prerequisite $i
 done
 
@@ -17,9 +17,10 @@ curl -fLo .yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod
 ./.yadm submodule update --init --recursive
 rm .yadm
 
-chsh -s $(which zsh)
-TO_INSTALL="ripgrep exa bat fd fzf git-delta tokei procs dust zoxide"
+TO_INSTALL="ripgrep exa bat fd fzf git-delta tokei procs dust zoxide zsh"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 source ~/.path
 source ~/.aliases
 brew install $TO_INSTALL
+
+chsh -s $(which zsh)
