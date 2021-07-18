@@ -23,18 +23,3 @@ TO_INSTALL="ripgrep exa bat fd fzf git-delta tokei procs dust zoxide"
 source ~/.path
 source ~/.aliases
 brew install $TO_INSTALL
-
-echo "[core]
-    pager = delta
-
-[interactive]
-    diffFilter = delta --color-only
-
-[delta]
-    features = side-by-side line-numbers decorations
-    whitespace-error-style = 22 reverse
-
-[delta \"decorations\"]
-    commit-decoration-style = bold yellow box ul
-    file-style = bold yellow ul
-    file-decoration-style = none" >> ~/.gitconfig
