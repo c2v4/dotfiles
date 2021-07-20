@@ -17,7 +17,7 @@ curl -fLo .yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod
 ./.yadm submodule update --init --recursive
 rm .yadm
 
-TO_INSTALL="ripgrep exa bat fd fzf git-delta tokei procs dust zoxide zsh"
+TO_INSTALL="ripgrep exa bat fd fzf git-delta tokei procs dust duf zoxide zsh"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 source ~/.path
 source ~/.aliases
