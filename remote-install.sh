@@ -23,4 +23,5 @@ source ~/.path
 source ~/.aliases
 brew install $TO_INSTALL
 
+command -v zsh | sudo tee -a /etc/shells
 chsh -s $(which zsh)
