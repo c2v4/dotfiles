@@ -39,3 +39,14 @@ if command -v zoxide &> /dev/null
 then
 	eval "$(zoxide init bash)"
 fi
+
+if command -v wslview &> /dev/null
+then
+        alias open='wslview'
+fi
+
+if command -v code &> /dev/null
+then
+        alias edit='code -g'
+        export EDITOR=code
+fi

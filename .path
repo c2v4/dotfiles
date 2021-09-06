@@ -6,3 +6,8 @@ fi
 if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then 
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
+
+if [ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]; then 
+	source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
+
