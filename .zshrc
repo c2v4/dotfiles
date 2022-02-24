@@ -52,7 +52,7 @@ ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -75,7 +75,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-auto-fetch gradle extract z)
+plugins=(git git-auto-fetch gradle extract z sudo dirhistory)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -121,7 +121,9 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 ## The two bundle commmands above basically do the same thing.
 ## antigen will install the plugin and place it in your default plugins/ 
 ## if its not already installed, otherwise it will just load the plugin
-
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zdharma-continuum/fast-syntax-highlighting
 # Load the theme (antigen looks in your oh-my-zsh themes, custom/themes folder)
 antigen theme romkatv/powerlevel10k
 
@@ -143,3 +145,5 @@ source ~/.exports
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+source ~/.zshrc.local
