@@ -13,15 +13,8 @@ for i in git curl cc gcc make; do
 done
 
 curl -fLo .yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x .yadm
+./.yadm config "local.$0"
 ./.yadm clone https://github.com/c2v4/dotfiles
 ./.yadm submodule update --init --recursive
 rm .yadm
 
-TO_INSTALL="ripgrep exa bat fd fzf git-delta tokei procs dust duf zoxide zsh progress"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-source ~/.path
-source ~/.aliases
-brew install $TO_INSTALL
-
-command -v zsh | sudo tee -a /etc/shells
-chsh -s $(which zsh)
