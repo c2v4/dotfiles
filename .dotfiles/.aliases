@@ -1,21 +1,23 @@
-   alias cr='crystal'
-  alias gpl="gl"
-  alias gs="gsb"
-  alias la="ls -al"
-  alias lf="ls -al | grep ${1}"
-  alias ls="ls -Gl"
-  alias tt="$EDITOR ~/.tmux.conf"
-  alias u="utils"
-  alias vcp="vim +PlugClean +qall"
-  alias vip="vim +PlugInstall +qall"
-  alias vup="vim +PlugUpdate"
-  alias vv="$EDITOR ~/.vimrc"
-  alias zx="source ~/.zshrc"
-  alias zz="$EDITOR ~/.zshrc"
+alias cr='crystal'
+alias gpl="gl"
+alias gs="gsb"
+alias la="ls -al"
+alias lf="ls -al | grep ${1}"
+alias ls="ls -Gl"
+alias tt="$EDITOR ~/.tmux.conf"
+alias u="utils"
+alias vcp="vim +PlugClean +qall"
+alias vip="vim +PlugInstall +qall"
+alias vup="vim +PlugUpdate"
+alias vv="$EDITOR ~/.vimrc"
+alias zx="source ~/.zshrc"
+alias zz="$EDITOR ~/.zshrc"
 
 alias v='f -e vim' # quick opening files with vim
 alias m='f -e mplayer' # quick opening files with mplayer
 alias o='a -e xdg-open' # quick opening files with xdg-open
+
+alias type='whence -c'
 
 if command -v apt-fast &> /dev/null
 then
@@ -37,16 +39,21 @@ fi
 
 if command -v zoxide &> /dev/null
 then
-	eval "$(zoxide init bash)"
+	eval "$(zoxide init zsh)"
 fi
 
 if command -v wslview &> /dev/null
 then
-        alias open='wslview'
+        alias openw='wslview'
+fi
+
+if command -v xdg-open &> /dev/null
+then
+        alias open='xdg-open'
 fi
 
 if command -v code &> /dev/null
 then
         alias edit='code -g'
-        export EDITOR=code
+        export EDITOR=vim
 fi

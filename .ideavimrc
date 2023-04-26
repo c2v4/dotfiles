@@ -11,6 +11,9 @@ set noswapfile
 set nobackup
 set scrolloff=8
 set clipboard=unnamedplus
+set showmode
+
+let mapleader=" "
 
 "Plugins
 set surround
@@ -18,17 +21,31 @@ set commentary
 set highlightedyank
 set multiple-cursors
 
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+"noremap <Up> <Nop>
+"noremap <Down> <Nop>
+"noremap <Left> <Nop>
+"noremap <Right> <Nop>
 
 set showcmd
 set showmatch
 set autowrite
 set mouse=r
 
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+
 "for s:i in ['"','*','+','-','.',':','%','/','=','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 "    execute 'noremap "'.s:i.'p "'.s:i.'p'
 "    execute 'noremap "'.s:i.'P "'.s:i.'P'
 "endfor
+
+nnoremap <S-Left> :action EditorLeftWithSelection<CR>
+nnoremap <S-Right> :action EditorRightWithSelection<CR>
+nnoremap <S-Up> :action EditorUpWithSelection<CR>
+nnoremap <S-Down> :action EditorDownWithSelection<CR>
+
+inoremap <S-Left> <C-O>:action EditorLeftWithSelection<CR>
+inoremap <S-Right> <C-O>:action EditorRightWithSelection<CR>
+inoremap <S-Up> <C-O>:action EditorUpWithSelection<CR>
+inoremap <S-Down> <C-O>:action EditorDownWithSelection<CR>
+

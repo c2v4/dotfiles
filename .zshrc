@@ -49,7 +49,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -70,12 +70,14 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+export FZF_BASE=/home/linuxbrew/.linuxbrew/Cellar/fzf/0.27.2
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-auto-fetch gradle extract z sudo dirhistory)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting git-open fzf-tab git-auto-fetch gradle extract z sudo dirhistory fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -126,18 +128,13 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zdharma-continuum/fast-syntax-highlighting
 # Load the theme (antigen looks in your oh-my-zsh themes, custom/themes folder)
 antigen theme romkatv/powerlevel10k
+#antigen theme robbyrussel
 
 # Tell antigen that you're done.
 antigen apply
 
-if [ -f ~/.localrc ]; then
-	source ~/.localrc
-fi
+for f in ~/.dotfiles/.*; do source $f; done
 
-source ~/.path
-source ~/.aliases
-source ~/.functions
-source ~/.exports
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -146,4 +143,7 @@ source ~/.exports
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-source ~/.zshrc.local
+if [ -f ~/.zshrc.local ]; then
+     source ~/.zshrc.local
+fi
+source ~/.zplug/repos/b4b4r07/enhancd/init.sh
