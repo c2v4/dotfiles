@@ -20,7 +20,7 @@ chsh -s $ZSH_LOCATION
 
 # curl -fLo .yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x .yadm
 # ./.yadm config "local.$0"
-yadm clone https://github.com/c2v4/dotfiles
+yadm clone -f https://github.com/c2v4/dotfiles
 yadm submodule update --init --recursive
 
 brew bundle install 
