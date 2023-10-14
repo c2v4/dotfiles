@@ -13,7 +13,7 @@
 # done
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-brew install git curl gcc make yadm zsh
+brew install git curl gcc make yadm zsh unzip
 ZSH_LOCATION=$(which zsh)
 echo $ZSH_LOCATION | sudo tee -a /etc/shells
 chsh -s $ZSH_LOCATION
