@@ -77,7 +77,7 @@ export FZF_BASE=/home/linuxbrew/.linuxbrew/Cellar/fzf/0.27.2
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting git-open fzf-tab git-auto-fetch gradle extract z sudo dirhistory fzf)
+plugins=(git git-auto-fetch gradle extract z sudo dirhistory fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,6 +110,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 # antigen installation
+export FZF_BASE=/home/linuxbrew/.linuxbrew/opt/fzf
 source ~/.antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
@@ -126,6 +127,8 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zdharma-continuum/fast-syntax-highlighting
+antigen bundle Aloxaf/fzf-tab
+antigen bundle paulirish/git-open
 # Load the theme (antigen looks in your oh-my-zsh themes, custom/themes folder)
 antigen theme romkatv/powerlevel10k
 #antigen theme robbyrussel
@@ -146,4 +149,4 @@ export SDKMAN_DIR="$HOME/.sdkman"
 if [ -f ~/.zshrc.local ]; then
      source ~/.zshrc.local
 fi
-source ~/.zplug/repos/b4b4r07/enhancd/init.sh
+source ~/.enhancd/init.sh
