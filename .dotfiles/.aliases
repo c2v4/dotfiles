@@ -27,9 +27,8 @@ fi
 if command -v eza &> /dev/null
 then
   alias ls='eza --icons=always'
-  alias la='eza -la'
-  alias ll='eza -lah'
-  alias ls='eza --color=auto'
+  alias la='ls -la'
+  alias ll='ls -lah'
 fi
 
 if command -v bat &> /dev/null
