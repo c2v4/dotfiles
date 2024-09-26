@@ -1,11 +1,12 @@
 function gfck {
-    BRANCH="$(git rev-parse --abbrev-ref HEAD) "
-    if [ $BRANCH=="master " ] ; then
+    BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+    if [ "$BRANCH" = "master" ] || [ "$BRANCH" = "main" ]; then
         BRANCH=""
+    else
+        BRANCH="$BRANCH "
     fi
-    git commit -am "$BRANCH$(curl -s http://whatthecommit.com/index.txt)"
+    git commit -am "$BRANCH$(curl -s https://whatthecommit.com/index.txt)"
 }
-
 # Install (one or multiple) selected application(s)
 # using "brew search" as source input
 # mnemonic [B]rew [I]nstall [P]lugin

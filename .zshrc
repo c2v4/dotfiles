@@ -138,7 +138,6 @@ antigen apply
 
 for f in ~/.dotfiles/.*; do source $f; done
 
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -149,4 +148,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 if [ -f ~/.zshrc.local ]; then
      source ~/.zshrc.local
 fi
-source ~/.enhancd/init.sh
+#source ~/.enhancd/init.sh
+___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
+
+for f in ~/.dotfiles/.*; do source $f; done
+eval "$(atuin init zsh --disable-up-arrow)"

@@ -3,7 +3,6 @@ alias gpl="gl"
 alias gs="gsb"
 alias la="ls -al"
 alias lf="ls -al | grep ${1}"
-alias ls="ls -Gl"
 alias tt="$EDITOR ~/.tmux.conf"
 alias u="utils"
 alias vcp="vim +PlugClean +qall"
@@ -23,14 +22,13 @@ if command -v apt-fast &> /dev/null
 then
 	alias apt-get='apt-fast'
 fi
-
 if command -v eza &> /dev/null
 then
-  alias ls='eza --icons=always'
+alias ls="eza --color=always --icons=never"
+alias ll="eza -lah --color=always --long --git --icons=always "
   alias la='ls -la'
-  alias ll='ls -lah'
 fi
-
+alias co='gh copilot suggest -t shell -s'
 if command -v bat &> /dev/null
 then
 	alias cat='bat --style=plain'
@@ -49,6 +47,10 @@ fi
 if command -v xdg-open &> /dev/null
 then
         alias open='xdg-open'
+fi
+if command -v thefuck &> /dev/null
+then
+	eval $(thefuck --alias fk)
 fi
 
 if command -v code &> /dev/null
