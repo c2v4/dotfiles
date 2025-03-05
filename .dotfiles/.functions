@@ -7,6 +7,13 @@ function gfck {
     fi
     git commit -am "$BRANCH$(curl -s https://whatthecommit.com/index.txt)"
 }
+
+function gfap {
+    git add -A
+    gfck
+    git push
+}
+
 # Install (one or multiple) selected application(s)
 # using "brew search" as source input
 # mnemonic [B]rew [I]nstall [P]lugin
