@@ -1,24 +1,76 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# yadm bootstrap — idempotent, OS-aware tool install for these dotfiles.
+# Safe to re-run after `yadm pull`.
+set -uo pipefail
 
-# Save this file as ~/.config/yadm/bootstrap and make it executable. It will
-# execute all executable files (excluding templates and editor backups) in the
-# ~/.config/yadm/bootstrap.d directory when run.
+have() { command -v "$1" >/dev/null 2>&1; }
+log()  { printf '%s\n' "$*"; }
 
-set -eu
-
-# Directory to look for bootstrap executables in
-BOOTSTRAP_D="${BASH_SOURCE[0]}.d"
-
-if [[ ! -d "$BOOTSTRAP_D" ]]; then
-    echo "Error: bootstrap directory '$BOOTSTRAP_D' not found" >&2
-    exit 1
+# --- Omarchy safety: keep Omarchy's own config in charge on Omarchy hosts ---
+# Setting class=Omarchy means the repo's `.bashrc##~class.Omarchy` is NOT
+# linked, so Omarchy's own ~/.bashrc is left untouched.
+if [ -d /usr/share/omarchy ] && have yadm; then
+  log "Omarchy detected: setting yadm class=Omarchy and re-linking alternates"
+  yadm config local.class Omarchy || true
+  yadm alt || true
 fi
 
-find -L "$BOOTSTRAP_D" -type f | sort | while IFS= read -r bootstrap; do
-    if [[ -x "$bootstrap" && ! "$bootstrap" =~ "##" && ! "$bootstrap" =~ "~$" ]]; then
-        if ! "$bootstrap"; then
-            echo "Error: bootstrap '$bootstrap' failed" >&2
-            exit 1
-        fi
+BREW_FORMULAE=(eza zoxide fzf bat fd ripgrep starship tmux neovim git-delta lazygit mise)
+ARCH_PKGS=(eza zoxide fzf bat fd ripgrep starship tmux neovim git-delta lazygit mise)
+DEB_PKGS=(eza zoxide fzf bat fd-find ripgrep tmux neovim git-delta)
+RPM_PKGS=(eza zoxide fzf bat fd-find ripgrep tmux neovim git-delta)
+
+install_macos() {
+  have brew || { log "Homebrew not found — install from https://brew.sh then re-run"; return 0; }
+  log "Installing tools via Homebrew..."
+  brew install "${BREW_FORMULAE[@]}" || true
+}
+
+install_arch() {
+  have pacman || return 0
+  local sudo=""; have sudo && sudo="sudo"
+  log "Installing tools via pacman..."
+  $sudo pacman -S --needed --noconfirm "${ARCH_PKGS[@]}" || true
+}
+
+install_debian() {
+  have apt-get || return 0
+  local sudo=""; have sudo && sudo="sudo"
+  log "Installing tools via apt..."
+  $sudo apt-get update || true
+  $sudo apt-get install -y "${DEB_PKGS[@]}" || true
+}
+
+install_fedora() {
+  have dnf || return 0
+  local sudo=""; have sudo && sudo="sudo"
+  log "Installing tools via dnf..."
+  $sudo dnf install -y "${RPM_PKGS[@]}" || true
+}
+
+case "$(uname -s)" in
+  Darwin) install_macos ;;
+  Linux)
+    if [ -f /etc/arch-release ] || [ -d /usr/share/omarchy ]; then
+      install_arch
+    elif have apt-get; then
+      install_debian
+    elif have dnf; then
+      install_fedora
+    else
+      log "Unknown Linux distro — install manually: ${ARCH_PKGS[*]}"
     fi
-done
+    ;;
+esac
+
+# Tools not reliably packaged everywhere.
+if ! have starship; then
+  log "Installing starship..."
+  curl -fsSL https://starship.rs/install.sh | sh -s -- -y || true
+fi
+if ! have mise; then
+  log "Installing mise..."
+  curl -fsSL https://mise.run | sh || true
+fi
+
+log "Bootstrap complete."

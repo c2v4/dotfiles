@@ -1,0 +1,6 @@
+# Vendored from Omarchy (default/bash/functions), repointed at the copy in
+# this repo instead of $OMARCHY_PATH so it also works off Omarchy.
+for _f in "$HOME/.config/shell/omarchy/fns/"*; do
+  [ -r "$_f" ] && . "$_f"
+done
+unset _f

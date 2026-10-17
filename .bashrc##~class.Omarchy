@@ -1,0 +1,20 @@
+# ~/.bashrc — portable, Omarchy-flavored.
+#
+# yadm alt file: this becomes ~/.bashrc everywhere EXCEPT Omarchy hosts
+# (class=Omarchy), where Omarchy's own ~/.bashrc is deliberately kept.
+
+case "$-" in
+  *i*) ;;
+  *) return ;;
+esac
+
+if [ -n "${BASH_VERSION:-}" ]; then
+  [ -r "$HOME/.config/shell/envs.sh" ]              && . "$HOME/.config/shell/envs.sh"
+  [ -r "$HOME/.config/shell/init.bash" ]            && . "$HOME/.config/shell/init.bash"
+  [ -r "$HOME/.config/shell/omarchy/aliases" ]      && . "$HOME/.config/shell/omarchy/aliases"
+  [ -r "$HOME/.config/shell/omarchy/functions" ]    && . "$HOME/.config/shell/omarchy/functions"
+  [ -r "$HOME/.config/shell/omarchy/completions" ]  && . "$HOME/.config/shell/omarchy/completions"
+fi
+
+# Local overrides
+[ -r "$HOME/.bashrc.local" ] && . "$HOME/.bashrc.local"

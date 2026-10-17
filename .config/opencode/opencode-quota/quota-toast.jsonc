@@ -1,0 +1,14 @@
+{
+  // Find providers from your OpenCode config and logins.
+  "enabledProviders": "auto",
+
+  // Show the Quota panel in the TUI sidebar.
+  "tuiSidebarPanel": { "enabled": true },
+
+  // Keep the other automatic TUI displays off.
+  "enableToast": false,
+  "tuiCompactStatus": { "enabled": false },
+
+  // Show the count of maintainer notices on Home, once a day for 10 minutes.
+  "maintainerAnnouncements": { "enabled": true, "home": true },
+}

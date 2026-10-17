@@ -1,0 +1,22 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "theme": {
+    "name": "opencode",
+    "mode": "dark"
+  },
+  "attention": {
+    "notifications": true,
+    "sound": true,
+    "volume": 0.4
+  },
+  "session": {
+    "verbosity": "low",
+    "sidebar": "auto",
+    "scrollbar": false,
+    "markdown": "rendered",
+    "grouping": "auto",
+    "image_preview": false
+  },
+  "animations": true,
+  "plugins": ["./herdr-opencode"]
+}
